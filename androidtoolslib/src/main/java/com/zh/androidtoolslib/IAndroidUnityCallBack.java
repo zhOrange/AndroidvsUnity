@@ -13,5 +13,6 @@ package com.zh.androidtoolslib;
  * @Version: 1.0
  */
 public interface IAndroidUnityCallBack {
-    public void unityFunc(String result);
+    public String getUnityStringFunc();
+    public void setUnityValueFunc(int intValue, String str);
 }

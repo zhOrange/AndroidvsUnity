@@ -70,18 +70,33 @@ public class Unity2Android {
 
 
     /**
-     * 供unity调用的Android方法.
+     * Android方法,供unity调用,简单显示一个toast.
      * @param param
      * @return
      */
-    public boolean androidFunc(String param){
+    public boolean androidShowToast(String param){
+
         //显示Toast
-        Toast.makeText(getUnityActivity(),"Java method called by Unity.",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getUnityActivity(),"get a string from Unity: " + param,Toast.LENGTH_SHORT).show();
+
+        return true;
+    }
+
+    /**
+     * Android方法,供unity调用,获得unity传入多个参数,执行相关动作.
+     * @param param 传入string参数.
+     * @param array 传入int[]参数
+     */
+    public void androidFunc(String param, int[] array){
+
+        Log.d(TAG, "androidFunc: get a string from unity: " + param);
+        Log.d(TAG, "androidFunc: get a array from unity: " + array.toString());
 
         //同时,主动调用unity中定义的方法.
         if(_unityCallback != null){
-            _unityCallback.unityFunc(param);
+            String unityStr = _unityCallback.getUnityStringFunc();                                        //调用unity方法,获取返回值.
+            Log.d(TAG, "androidFunc: call the unity function and get the result: " + unityStr);
+            _unityCallback.setUnityValueFunc(32, "AndroidString");                          //将Android中的某些值,传入unity.
         }
-        return true;
     }
 }
