@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Arrays;
 
 /**
  * @ProjectName: AndroidvsUnity
@@ -90,7 +91,7 @@ public class Unity2Android {
     public void androidFunc(String param, int[] array){
 
         Log.d(TAG, "androidFunc: get a string from unity: " + param);
-        Log.d(TAG, "androidFunc: get a array from unity: " + array.toString());
+        Log.d(TAG, "androidFunc: get a array from unity: " + Arrays.toString(array));
 
         //同时,主动调用unity中定义的方法.
         if(_unityCallback != null){
