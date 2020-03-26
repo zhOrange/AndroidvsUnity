@@ -20,11 +20,11 @@ import android.util.Log;
 /**
  *单例.用于与unity进行交互,获取unity的Activity和_unityCallback.
  */
-public class UnityCallBack {
+public class UnityCallBackSingleton {
     private static final String TAG = "UnityCallBack";
 
-    private static UnityCallBack mInstance;
-    private UnityCallBack(){
+    private static UnityCallBackSingleton mInstance;
+    private UnityCallBackSingleton(){
         //do nothing.
     }
 
@@ -32,9 +32,9 @@ public class UnityCallBack {
      * 获得单例实例对象.
      * @return
      */
-    public static UnityCallBack getInstance(){
+    public static UnityCallBackSingleton getInstance(){
         if(mInstance != null){
-            mInstance = new UnityCallBack();
+            mInstance = new UnityCallBackSingleton();
         }
         return mInstance;
     }

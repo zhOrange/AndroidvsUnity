@@ -30,7 +30,7 @@ public class AndroidCallBack {
      */
     public void setAndroidUnityCallback(IUnityCallBack callback){
         try {
-            UnityCallBack.getInstance().setUnityCallback(callback);
+            UnityCallBackSingleton.getInstance().setUnityCallback(callback);
         }
         catch (Exception ex)
         {
@@ -50,7 +50,7 @@ public class AndroidCallBack {
 
 
         //Android主动调用unity中的方法.
-        IUnityCallBack callBack = UnityCallBack.getInstance().getUnityCallback();
+        IUnityCallBack callBack = UnityCallBackSingleton.getInstance().getUnityCallback();
         if(callBack != null){
             String unityStr = callBack.getUnityStringFunc();                                        //调用unity方法,获取返回值.
             Log.d(TAG, "androidFunc: call the unity function and get the result: " + unityStr);
